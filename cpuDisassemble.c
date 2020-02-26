@@ -269,7 +269,7 @@ int Disassemble8080p(unsigned char *codebuffer, int pc) {
     return opbytes;
 }
 
-int main(int argc, char**argv) {
+void main(int argc, char**argv) {
     FILE *f = fopen(argv[1], "rb");
     if (f == NULL) {
         printf("error: Couldn't open %s\n", argv[1]);
@@ -291,6 +291,4 @@ int main(int argc, char**argv) {
     while (pc < fsize) {
         pc += Disassemble8080p(buffer, pc);
     }
-
-    return 0;
 }
